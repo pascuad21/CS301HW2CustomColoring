@@ -9,9 +9,15 @@ public class testCircle {
     private int g = (int)(Math.random()*256);
     private int b = (int)(Math.random()*256);
 
+    public testCircle(){
+        Paint randomColor = new Paint();
+        randomColor.setColor(Color.rgb(r,g,b));
+    }
+
     public testCircle(Canvas canvas, int x, int y){
         Paint randomColor = new Paint();
         randomColor.setColor(Color.rgb(r,g,b));
-        canvas.drawCircle(x,y,100,randomColor);
+        canvas.drawCircle(x,y,10,randomColor);
     }
+
 }

@@ -17,12 +17,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //initializes View objects
-        SurfaceView thePicture = findViewById(R.id.drawingSurfaceView);
+        //SurfaceView thePicture = findViewById(R.id.drawingSurfaceView);
         SeekBar redSeekBar = findViewById(R.id.redSeekBar);
         SeekBar blueSeekBar = findViewById(R.id.blueSeekBar);
         SeekBar greenSeekBar = findViewById(R.id.greenSeekBar);
 
-        
 
         redSeekBar.setOnSeekBarChangeListener(new seekRedBarListener());
         blueSeekBar.setOnSeekBarChangeListener(new seekBlueBarListener());
