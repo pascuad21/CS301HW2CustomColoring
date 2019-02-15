@@ -16,7 +16,7 @@ import java.util.ArrayList;
  * @Version:  2/11/2019
  */
 public class drawingView extends SurfaceView implements View.OnTouchListener {
-    ArrayList<testCircle> circleList = new ArrayList<testCircle>();
+  private ArrayList<houseShape> houseParts = new ArrayList<houseShape>();
 
     public drawingView(Context context) {
         super(context);
@@ -40,9 +40,15 @@ public class drawingView extends SurfaceView implements View.OnTouchListener {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-//        Paint testColor = new Paint();
-//        testColor.setColor(Color.BLUE);
-//        canvas.drawCircle(500,500,500,testColor);
+        houseShape base = new houseShape();
+        base.Draw(canvas);
+        houseParts.add(base);
+        roofShape roof = new roofShape();
+        roof.Draw(canvas);
+        houseParts.add(roof);
+        windowShape1 leftWindow = new windowShape1();
+        leftWindow.Draw(canvas);
+        houseParts.add(leftWindow);
 
 
     }
@@ -52,7 +58,7 @@ public class drawingView extends SurfaceView implements View.OnTouchListener {
         int xTouch = (int) event.getX();
         int yTouch = (int) event.getY();
 
-        testCircle theCircle = new testCircle();
-        return false;
+        this.invalidate();
+        return true;
     }
 }
