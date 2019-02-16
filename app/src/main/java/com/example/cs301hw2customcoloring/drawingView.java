@@ -16,7 +16,7 @@ import java.util.ArrayList;
  * @Version:  2/11/2019
  */
 public class drawingView extends SurfaceView implements View.OnTouchListener {
-  private ArrayList<houseShape> houseParts = new ArrayList<houseShape>();
+  private ArrayList<HouseShape> houseParts = new ArrayList<HouseShape>();
 
     public drawingView(Context context) {
         super(context);
@@ -40,16 +40,25 @@ public class drawingView extends SurfaceView implements View.OnTouchListener {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        houseShape base = new houseShape();
+
+        ChimneyShape chimney = new ChimneyShape();
+        chimney.Draw(canvas);
+        houseParts.add(chimney);
+        HouseShape base = new HouseShape();
         base.Draw(canvas);
         houseParts.add(base);
-        roofShape roof = new roofShape();
+        RoofShape roof = new RoofShape();
         roof.Draw(canvas);
         houseParts.add(roof);
-        windowShape1 leftWindow = new windowShape1();
+        WindowShape1 leftWindow = new WindowShape1();
         leftWindow.Draw(canvas);
         houseParts.add(leftWindow);
-
+        WindowShape2 rightWindow = new WindowShape2();
+        rightWindow.Draw(canvas);
+        houseParts.add(rightWindow);
+        DoorShape door = new DoorShape();
+        door.Draw(canvas);
+        houseParts.add(door);
 
     }
 
