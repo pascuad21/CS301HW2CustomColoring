@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         blueSeekBar.setOnSeekBarChangeListener(new seekBlueBarListener());
         greenSeekBar.setOnSeekBarChangeListener(new seekGreenBarListener());
 
+
     }
     // Seek bar listener classes that changes the display value for each respective seek bar
     private class seekRedBarListener implements SeekBar.OnSeekBarChangeListener{

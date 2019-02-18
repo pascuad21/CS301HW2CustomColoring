@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.SurfaceView;
 import android.view.View;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -66,6 +67,16 @@ public class drawingView extends SurfaceView implements View.OnTouchListener {
     public boolean onTouch(View v, MotionEvent event) {
         int xTouch = (int) event.getX();
         int yTouch = (int) event.getY();
+
+        for(HouseShape s : houseParts){
+            if(xTouch >= s.getLowerX() && xTouch <= s.getUpperX() &&
+                yTouch >= s.getLowerY() && yTouch <= s.getUpperY()) {
+
+                TextView currentElement = findViewById(R.id.currentElementText);
+                String elementName = s.getId();
+                currentElement.setText(elementName);
+            }
+            }
 
         this.invalidate();
         return true;
