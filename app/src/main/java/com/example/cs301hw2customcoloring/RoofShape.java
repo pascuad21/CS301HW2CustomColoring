@@ -20,6 +20,17 @@ public class RoofShape extends HouseShape {
         g = 0;
         b = 0;
     }
+    public void setR(int value){
+        r = value;
+    }
+
+    public  void setG(int value){
+        g = value;
+    }
+
+    public void setB(int value){
+        b = value;
+    }
 
     public String getId(){
         return id;
@@ -34,7 +45,7 @@ public class RoofShape extends HouseShape {
     }
 
     public int getLowerY(){
-        return (int) topY;
+        return (int) topY + 100; // to accommodate for the chimney
     }
     public int getUpperY(){
         return (int) leftY;

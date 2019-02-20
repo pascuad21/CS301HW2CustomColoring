@@ -5,16 +5,17 @@ package com.example.cs301hw2customcoloring;
  */
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.SurfaceView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TextView currentElement = findViewById(R.id.currentElementText);
+        DrawingView mainPicture = findViewById(R.id.drawingSurfaceView);
 
         //initializes View objects
         //SurfaceView thePicture = findViewById(R.id.drawingSurfaceView);
@@ -22,73 +23,23 @@ public class MainActivity extends AppCompatActivity {
         SeekBar blueSeekBar = findViewById(R.id.blueSeekBar);
         SeekBar greenSeekBar = findViewById(R.id.greenSeekBar);
 
+        TextView redValueText = findViewById(R.id.redNumValue);
+        TextView blueValueText = findViewById(R.id.blueNumValue);
+        TextView greenValueText = findViewById(R.id.greenNumValue);
 
-        redSeekBar.setOnSeekBarChangeListener(new seekRedBarListener());
-        blueSeekBar.setOnSeekBarChangeListener(new seekBlueBarListener());
-        greenSeekBar.setOnSeekBarChangeListener(new seekGreenBarListener());
+        Controller theController = new Controller(redSeekBar,blueSeekBar,greenSeekBar,
+                currentElement, mainPicture, redValueText, greenValueText, blueValueText);
 
+        redSeekBar.setOnSeekBarChangeListener(theController);
+        greenSeekBar.setOnSeekBarChangeListener(theController);
+        blueSeekBar.setOnSeekBarChangeListener(theController);
+
+        mainPicture.setOnTouchListener(theController);
 
     }
-    // Seek bar listener classes that changes the display value for each respective seek bar
-    private class seekRedBarListener implements SeekBar.OnSeekBarChangeListener{
 
-        @Override
-        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-            String redIntensity = Integer.toString(progress);
-            TextView redValueText = findViewById(R.id.redNumValue);
-            redValueText.setText(redIntensity);
-        }
 
-        @Override
-        public void onStartTrackingTouch(SeekBar seekBar) {
 
-        }
-
-        @Override
-        public void onStopTrackingTouch(SeekBar seekBar) {
-
-        }
-    }
-
-    private class seekBlueBarListener implements SeekBar.OnSeekBarChangeListener{
-
-        @Override
-        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-            String blueIntensity = Integer.toString(progress);
-            TextView blueValueText = findViewById(R.id.blueNumValue);
-            blueValueText.setText(blueIntensity);
-        }
-
-        @Override
-        public void onStartTrackingTouch(SeekBar seekBar) {
-
-        }
-
-        @Override
-        public void onStopTrackingTouch(SeekBar seekBar) {
-
-        }
-    }
-
-    private class seekGreenBarListener implements SeekBar.OnSeekBarChangeListener{
-
-        @Override
-        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-            String greenIntensity = Integer.toString(progress);
-            TextView greenValueText = findViewById(R.id.greenNumValue);
-            greenValueText.setText(greenIntensity);
-        }
-
-        @Override
-        public void onStartTrackingTouch(SeekBar seekBar) {
-
-        }
-
-        @Override
-        public void onStopTrackingTouch(SeekBar seekBar) {
-
-        }
-    }
 
 
 }

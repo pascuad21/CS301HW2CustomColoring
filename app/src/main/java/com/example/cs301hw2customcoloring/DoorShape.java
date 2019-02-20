@@ -41,6 +41,18 @@ public class DoorShape extends HouseShape {
         b = 0;
     }
 
+    public void setR(int value){
+        r = value;
+    }
+
+    public  void setG(int value){
+        g = value;
+    }
+
+    public void setB(int value){
+        b = value;
+    }
+
     public void Draw(Canvas canvas){
         Paint doorColor = new Paint();
         doorColor.setColor(Color.rgb(r,g,b));

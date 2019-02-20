@@ -40,6 +40,17 @@ public class WindowShape2 extends HouseShape {
         g = 255;
         b = 255;
     }
+    public void setR(int value){
+        r = value;
+    }
+
+    public  void setG(int value){
+        g = value;
+    }
+
+    public void setB(int value){
+        b = value;
+    }
 
     public void Draw(Canvas canvas){
         Paint windowColor = new Paint();

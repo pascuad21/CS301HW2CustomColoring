@@ -25,7 +25,7 @@
                 android:text="current element will appear here"
                 android:textSize="30sp" />
 
-            <com.example.cs301hw2customcoloring.drawingView
+            <com.example.cs301hw2customcoloring.DrawingView
                 android:id="@+id/drawingSurfaceView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />

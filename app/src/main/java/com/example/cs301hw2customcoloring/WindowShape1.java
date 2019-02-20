@@ -21,6 +21,17 @@ public class WindowShape1 extends HouseShape {
         g = 255;
         b = 255;
     }
+    public void setR(int value){
+        r = value;
+    }
+
+    public  void setG(int value){
+        g = value;
+    }
+
+    public void setB(int value){
+        b = value;
+    }
     public String getId(){
         return id;
     }

@@ -43,6 +43,20 @@ public class  HouseShape{
     public int getUpperY(){
         return (int) bottom;
     }
+
+
+    public void setR(int value){
+        r = value;
+    }
+
+    public  void setG(int value){
+        g = value;
+    }
+
+    public void setB(int value){
+        b = value;
+    }
+
     public void Draw(Canvas canvas){
         Paint houseColor = new Paint();
         houseColor.setColor(Color.rgb(r,g,b));

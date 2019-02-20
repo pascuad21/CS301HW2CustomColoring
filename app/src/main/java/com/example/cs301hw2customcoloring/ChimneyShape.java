@@ -13,7 +13,7 @@ public class ChimneyShape extends HouseShape {
     private float botRightX = 875 , botRightY = 300;
     private float botLeftX = 825, botLeftY = 300 ;
 
-    protected String id = "Right Window";
+    protected String id = "The Chimney";
 
     public String getId(){
         return id;
@@ -28,16 +28,26 @@ public class ChimneyShape extends HouseShape {
     }
 
     public int getLowerY(){
-        return (int) topRightY;
+        return (int) topRightY ;
     }
-    public int getUpperY(){
-        return (int) botRightY;
-    }
+    public int getUpperY(){ return (int) botRightY; }
+
     public ChimneyShape(){
         /*Default color is light grey/gray */
         r = 160;
         b = 160;
         g = 160;
+    }
+    public void setR(int value){
+        r = value;
+    }
+
+    public  void setG(int value){
+        g = value;
+    }
+
+    public void setB(int value){
+        b = value;
     }
 
     public void Draw(Canvas canvas){
