@@ -1,41 +1,49 @@
 package com.example.cs301hw2customcoloring;
-
+/**
+ * @Author: Dylan Pascua
+ * @Version: 2/20/19
+ *
+ * RoofShape is a subclass of HouseShape that
+ * draws the red roof
+ */
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+
+import static android.graphics.Color.rgb;
 
 public class RoofShape extends HouseShape {
     private int r,g,b;
 
+    /*The position of the roof in the DrawingView's
+    plane.
+     */
     private float leftX = 500, leftY = 400;
     private float topX = 750, topY = 100;
     private float rightX = 1000, rightY = 400;
 
     protected String id = "The Roof";
 
+    Paint roofColor = new Paint();
+
     public RoofShape() {
         /* default color is maroon */
         r = 128;
         g = 0;
         b = 0;
+        roofColor.setColor(rgb(r,g,b));
     }
-    public void setR(int value){
-        r = value;
-    }
-
-    public  void setG(int value){
-        g = value;
-    }
-
-    public void setB(int value){
-        b = value;
+    public Paint getPaint(){
+        return  roofColor;
     }
 
     public String getId(){
         return id;
     }
 
+    /* these getter methods are used to determine
+      the bounds in the onTouch method in Controller
+       */
     public int getLowerX(){
         return (int) leftX;
     }
@@ -52,10 +60,12 @@ public class RoofShape extends HouseShape {
     }
 
     public void Draw(Canvas canvas){
-        Paint roofColor = new Paint();
-        roofColor.setColor(Color.rgb(r,g,b));
         roofColor.setStyle(Paint.Style.FILL);
 
+        /* this created the polygon using the
+        path class. Which is just creating
+        points using x & y values
+         */
         Path triangle = new Path();
         triangle.moveTo(leftX,leftY);
         triangle.lineTo(topX,topY);

@@ -1,13 +1,21 @@
 package com.example.cs301hw2customcoloring;
-
+/**
+ * @Author: Dylan Pascua
+ * @Version: 2/20/19
+ *
+ * WindowShape2 is a subclass of HouseShape
+ * that draws the right window of the House
+ */
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+
+import static android.graphics.Color.rgb;
 
 public class WindowShape2 extends HouseShape {
     private int r,g,b;
 
+    /*Position of the window in DrawingView's plane */
     private float topLeftX = 800 , topLeftY = 430;
     private float topRightX= 950 , topRightY = 430;
     private float botRightX = 950 , botRightY = 600;
@@ -15,46 +23,30 @@ public class WindowShape2 extends HouseShape {
 
     protected String id = "Right Window";
 
-    public String getId(){
-        return id;
-    }
+    Paint windowColor = new Paint();
 
-    public int getLowerX(){
-        return (int) topLeftX;
-    }
+    public String getId(){ return id; }
 
-    public int getUpperX(){
-        return (int) topRightX;
-    }
-
-    public int getLowerY(){
-        return (int) topRightY;
-    }
-    public int getUpperY(){
-        return (int) botRightY;
-    }
+    /* these getter methods are used to determine
+      the bounds in the onTouch method in Controller
+       */
+    public int getLowerX(){ return (int) topLeftX; }
+    public int getUpperX(){ return (int) topRightX; }
+    public int getLowerY(){ return (int) topRightY; }
+    public int getUpperY(){ return (int) botRightY; }
 
     public WindowShape2(){
         /*Default color is light blue */
         r = 153;
         g = 255;
         b = 255;
+        windowColor.setColor(rgb(r,g,b));
     }
-    public void setR(int value){
-        r = value;
-    }
-
-    public  void setG(int value){
-        g = value;
-    }
-
-    public void setB(int value){
-        b = value;
+    public Paint getPaint(){
+        return  windowColor;
     }
 
     public void Draw(Canvas canvas){
-        Paint windowColor = new Paint();
-        windowColor.setColor(Color.rgb(r,g,b));
         windowColor.setStyle(Paint.Style.FILL);
 
         Path window = new Path();
